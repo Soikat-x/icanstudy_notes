@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effective Planning & Goal Setting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+        body {
+            font-family: 'Source Serif Pro', serif;
+            background: #fafafa;
+            color: #2c2c2c;
+            line-height: 1.7;
+            min-height: 100vh;
+            padding: 40px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .night-mode-toggle {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: #fff;
+            border: 1px solid #d0d0d0;
+            border-radius: 4px;
+            padding: 8px 16px;
+            cursor: pointer;
+            z-index: 1000;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            color: #555;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .night-mode-toggle:hover {
+            background: #f8f9fa;
+            border-color: #999;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Night mode styles */
+        body.night-mode {
+            background: #1a1a1a;
+            color: #e5e5e5;
+        }
+
+        body.night-mode .night-mode-toggle {
+            background: #2d2d2d;
+            border-color: #404040;
+            color: #e5e5e5;
+        }
+
+        body.night-mode .night-mode-toggle:hover {
+            background: #3a3a3a;
+            border-color: #555;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 2px;
+            padding: 60px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        body.night-mode .container {
+            background: #2d2d2d;
+            border-color: #404040;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .content {
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Source Serif Pro', serif;
+            font-size: 2.8rem;
+            color: #1a1a1a;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        body.night-mode h1 {
+            color: #f0f0f0;
+            border-bottom-color: #4f82ff;
+        }
+
+        h2 {
+            font-family: 'Source Serif Pro', serif;
+            font-size: 1.8rem;
+            color: #1e40af;
+            margin-top: 45px;
+            margin-bottom: 25px;
+            font-weight: 600;
+            position: relative;
+            border-left: 4px solid #2563eb;
+            padding-left: 20px;
+            transition: all 0.3s ease;
+        }
+
+        body.night-mode h2 {
+            color: #6bb8ff;
+            border-left-color: #4f82ff;
+        }
+
+        h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.3rem;
+            color: #374151;
+            margin-top: 30px;
+            margin-bottom: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        body.night-mode h3 {
+            color: #d1d5db;
+        }
+
+        p {
+            margin-bottom: 18px;
+            color: #374151;
+            font-size: 1.1rem;
+            font-weight: 400;
+            text-align: justify;
+            transition: all 0.3s ease;
+        }
+
+        body.night-mode p {
+            color: #d1d5db;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-bottom: 25px;
+        }
+
+        li {
+            margin-bottom: 15px;
+            color: #374151;
+            font-size: 1.05rem;
+            font-weight: 400;
+            text-align: justify;
+            transition: all 0.3s ease;
+        }
+
+        body.night-mode li {
+            color: #d1d5db;
+        }
+
+        li::marker {
+            color: #6b7280;
+        }
+
+        strong {
+            color: #1f2937;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        body.night-mode strong {
+            color: #f9fafb;
+        }
+
+        .section {
+            margin-bottom: 45px;
+            padding: 35px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-left: 5px solid #3b82f6;
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        body.night-mode .section {
+            background: #1f1f1f;
+            border-color: #404040;
+            border-left-color: #6bb8ff;
+        }
+
+        .section:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            border-left-color: #1d4ed8;
+        }
+
+        .section:nth-child(even) {
+            background: #f0fdf4;
+            border-left-color: #059669;
+        }
+
+        body.night-mode .section:nth-child(even) {
+            background: #1a1a1a;
+            border-left-color: #10b981;
+        }
+
+        .section:nth-child(even):hover {
+            border-left-color: #047857;
+        }
+
+        .section:nth-child(odd) {
+            background: #fefbff;
+            border-left-color: #7c3aed;
+        }
+
+        body.night-mode .section:nth-child(odd) {
+            background: #262626;
+            border-left-color: #a78bfa;
+        }
+
+        .section:nth-child(odd):hover {
+            border-left-color: #6d28d9;
+        }
+
+        .highlight-box {
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            border-left: 4px solid #6366f1;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        body.night-mode .highlight-box {
+            background: #0d0d0d;
+            border-color: #404040;
+            border-left-color: #8b5cf6;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .highlight-box:nth-of-type(even) {
+            border-left-color: #10b981;
+        }
+
+        body.night-mode .highlight-box:nth-of-type(even) {
+            border-left-color: #34d399;
+        }
+
+        .highlighter {
+            background: #fef3c7;
+            padding: 2px 4px;
+            border-radius: 2px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        body.night-mode .highlighter {
+            background: #f59e0b;
+            color: #000000;
+        }
+
+        .highlighter-green {
+            background: #d1fae5;
+            color: #065f46;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        body.night-mode .highlighter-green {
+            background: #059669;
+            color: #ffffff;
+        }
+
+        .highlighter-blue {
+            background: #dbeafe;
+            color: #1e40af;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        body.night-mode .highlighter-blue {
+            background: #2563eb;
+            color: #ffffff;
+        }
+
+        .highlighter-purple {
+            background: #ede9fe;
+            color: #5b21b6;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        body.night-mode .highlighter-purple {
+            background: #7c3aed;
+            color: #ffffff;
+        }
+
+        em {
+            font-style: italic;
+            color: #4b5563;
+            transition: all 0.3s ease;
+        }
+
+        body.night-mode em {
+            color: #9ca3af;
+        }
+
+        /* Academic citation style for emphasis */
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #e5e7eb 50%, transparent 100%);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+            
+            .container {
+                padding: 40px 25px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+                margin-bottom: 40px;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+                margin-top: 35px;
+            }
+            
+            h3 {
+                font-size: 1.1rem;
+            }
+            
+            p, li {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 25px 20px;
+                margin-bottom: 35px;
+            }
+
+            .night-mode-toggle {
+                top: 15px;
+                right: 15px;
+                padding: 6px 12px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+                padding-left: 15px;
+            }
+        }
+
+        /* Print styles for academic appearance */
+        @media print {
+            body {
+                background: white;
+                font-size: 12pt;
+                line-height: 1.6;
+            }
+            
+            .container {
+                box-shadow: none;
+                border: none;
+                padding: 0;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                border: 1px solid #ccc;
+                margin-bottom: 20pt;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="night-mode-toggle" onclick="toggleNightMode()">🌙 Night Mode</div>
+    <div class="container">
+        <div class="content">
+            <h1><strong>Effective Planning & Goal Setting</strong></h1>
+
+            <div class="section">
+                <h2><strong>The Problem: Planning Ineffectively</strong></h2>
+                <ul>
+                    <li>Many people, regardless of age or experience, <span class="highlighter">don't plan very effectively</span>.</li>
+                    <li>You might know <span class="highlighter-green"><strong>SMART goals</strong></span> (Specific, Measurable, Attainable, Realistic, Time-bound). These are good basic guidelines, especially if you're new to goal setting.</li>
+                    <li>However, often these <span class="highlighter-blue">aren't enough to create a truly successful plan</span>.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><strong>The Big Difference: Goal Setting vs. Intention Setting</strong></h2>
+                <p>This is a <span class="highlighter-purple">crucial distinction</span>. They are two completely different things:</p>
+
+                <div class="highlight-box">
+                    <h3><strong>1. Intention Setting (What most people do):</strong></h3>
+                    <ul>
+                        <li>This is simply saying, "I want to achieve this thing," or "I'll try to do it."</li>
+                        <li>It <span class="highlighter">feels good and motivational</span>. You might make a poster or remind yourself often.</li>
+                        <li><strong>The Downside:</strong> It lacks a concrete plan. Most people have intentions, not actual goals with actionable steps. It doesn't detail <em>how</em> you'll achieve the outcome.
+                            <ul>
+                                <li>For example, students might say their goal is <span class="highlighter-green">"top 1% grade,"</span> but their plan is just "study really hard" or "try my best." When asked <em>how</em> or <em>with what</em>, the details are often missing.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h3><strong>2. Effective Goal Setting (The Aim):</strong></h3>
+                    <ul>
+                        <li>This means creating a <span class="highlighter-blue"><strong>"High Propensity Plan"</strong></span> – a plan optimized for success, with the highest chance of achieving the goal.</li>
+                        <li>It involves thinking through the <span class="highlighter"><strong>actual tasks and actionables</strong></span> that will turn the intention into reality.</li>
+                        <li>This is more difficult and complex to think through initially and can feel overwhelming.</li>
+                        <li>It's not just about age or maturity; even professionals can fall into <span class="highlighter-purple">"intention setting."</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><strong>The Way Forward:</strong></h2>
+                <ul>
+                    <li>The goal is to <span class="highlighter-green">move beyond just intentions</span>.</li>
+                    <li>We need a <span class="highlighter-blue"><strong>strategic and systematic</strong></span> way to go through goal setting.</li>
+                    <li>The process you'll learn can be used as a <span class="highlighter"><strong>template</strong></span> for any future goal you have, especially complex or overwhelming ones where you want to ensure you hit the mark.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleNightMode() {
+            const body = document.body;
+            const button = document.querySelector('.night-mode-toggle');
+            
+            if (body.classList.contains('night-mode')) {
+                body.classList.remove('night-mode');
+                button.innerHTML = '🌙 Night Mode';
+            } else {
+                body.classList.add('night-mode');
+                button.innerHTML = '☀️ Light Mode';
+            }
+        }
+    </script>
+</body>
+</html>
